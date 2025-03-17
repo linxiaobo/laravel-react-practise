@@ -1,8 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import todoReducer from "./todoSlice.jsx";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // Choose your storage engine
+import todoReducer from "./todoSlice";
 
-export default configureStore({
+const persistConfig = {
+    key: 'root',
+    storage
+};
+
+const persistedReducer = persistReducer(persistConfig, todoReducer);
+export const store = configureStore({
     reducer: {
-        todo: todoReducer
+        todo: persistedReducer
     },
 })
+export const persistor = persistStore(store);
