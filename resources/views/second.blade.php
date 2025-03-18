@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>
 <body>
-<h1 class="mb-1 font-medium">Welcome to Laravel!</h1>
+<h1 class="mb-1 font-medium">Welcome to Second Page!</h1>
 <div id="app">test</div>
 </body>
 </html>
